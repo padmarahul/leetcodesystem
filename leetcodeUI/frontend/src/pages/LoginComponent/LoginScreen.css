@@ -1,0 +1,8 @@
+/* LoginScreen.css */
+
+.login-container {
+    background-image: url('../../common/assets/bgImage.jpg'); /* Path to your image */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the image in the container */
+    background-repeat: no-repeat; /* Do not repeat the image */
+}
