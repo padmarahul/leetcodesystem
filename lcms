@@ -1,0 +1,142 @@
+
+INSERT INTO users (user_id, mobileno, zipcode, email_id, firstname, lastname, gender, password, type_of_user, username)
+VALUES 
+(1, '9876543210', '12345', 'john.doe@example.com', 'John', 'Doe', 'Male', 'password123', 'admin', 'john_doe'),
+(2, '9123456780', '67890', 'jane.doe@example.com', 'Jane', 'Doe', 'Female', 'password456', 'user', 'jane_doe'),
+(3, '9234567890', '23456', 'alice.wonder@example.com', 'Alice', 'Wonder', 'Female', 'alice1234', 'user', 'alice_wonder'),
+(4, '9345678901', '34567', 'bob.builder@example.com', 'Bob', 'Builder', 'Male', 'bobpassword', 'user', 'bob_builder'),
+(5, '9456789012', '45678', 'charlie.brown@example.com', 'Charlie', 'Brown', 'Male', 'charlie789', 'user', 'charlie_brown'),
+(6, '9567890123', '56789', 'eve.adams@example.com', 'Eve', 'Adams', 'Female', 'evepassword', 'admin', 'eve_adams'),
+(7, '9678901234', '67891', 'david.wilson@example.com', 'David', 'Wilson', 'Male', 'davidpassword', 'user', 'david_wilson'),
+(8, '9789012345', '78912', 'lily.evans@example.com', 'Lily', 'Evans', 'Female', 'lilysecret', 'user', 'lily_evans'),
+(9, '9890123456', '89123', 'harry.potter@example.com', 'Harry', 'Potter', 'Male', 'hogwarts123', 'user', 'harry_potter'),
+(10, '9901234567', '91234', 'hermione.granger@example.com', 'Hermione', 'Granger', 'Female', 'magic123', 'admin', 'hermione_granger');
+
+
+INSERT INTO customer (customer_id, user_id, mobileno, zipcode, email_id, full_name, gender, password, username)
+VALUES 
+(1, 1, '9876543210', '12345', 'john.doe@example.com', 'John Doe', 'Male', 'password123', 'john_doe'),
+(2, 2, '9123456780', '67890', 'jane.doe@example.com', 'Jane Doe', 'Female', 'password456', 'jane_doe'),
+(3, 3, '9234567890', '23456', 'alice.wonder@example.com', 'Alice Wonder', 'Female', 'alice1234', 'alice_wonder'),
+(4, 4, '9345678901', '34567', 'bob.builder@example.com', 'Bob Builder', 'Male', 'bobpassword', 'bob_builder'),
+(5, 5, '9456789012', '45678', 'charlie.brown@example.com', 'Charlie Brown', 'Male', 'charlie789', 'charlie_brown'),
+(6, 6, '9567890123', '56789', 'eve.adams@example.com', 'Eve Adams', 'Female', 'evepassword', 'eve_adams'),
+(7, 7, '9678901234', '67891', 'david.wilson@example.com', 'David Wilson', 'Male', 'davidpassword', 'david_wilson'),
+(8, 8, '9789012345', '78912', 'lily.evans@example.com', 'Lily Evans', 'Female', 'lilysecret', 'lily_evans'),
+(9, 9, '9890123456', '89123', 'harry.potter@example.com', 'Harry Potter', 'Male', 'hogwarts123', 'harry_potter'),
+(10, 10, '9901234567', '91234', 'hermione.granger@example.com', 'Hermione Granger', 'Female', 'magic123', 'hermione_granger');
+
+
+INSERT INTO one_time_passcode (user_user_id, generated_time, otp)
+VALUES 
+(1, '2024-10-20 10:00:00', '987654'),
+(2, '2024-10-20 10:05:00', '654321'),
+(3, '2024-10-20 10:10:00', '123456'),
+(4, '2024-10-20 10:15:00', '789456'),
+(5, '2024-10-20 10:20:00', '456789'),
+(6, '2024-10-20 10:25:00', '852369'),
+(7, '2024-10-20 10:30:00', '951753'),
+(8, '2024-10-20 10:35:00', '753951'),
+(9, '2024-10-20 10:40:00', '159357'),
+(10, '2024-10-20 10:45:00', '321654');
+
+INSERT INTO lcms.subscription_plans (id, plan_type, rate)
+VALUES 
+(1, 'monthly', 9.99),
+(2, 'yearly', 99.99),
+(3, 'quarterly', 24.99),
+(4, 'biannual', 49.99),
+(5, 'weekly', 2.99),
+(6, 'daily', 0.99),
+(7, 'lifetime', 299.99),
+(8, 'trial', 0.00),
+(9, 'monthly_plus', 19.99),
+(10, 'yearly_plus', 149.99);
+
+
+INSERT INTO lcms.subscriptions (id, customer_id, is_active, start_date, end_date)
+VALUES 
+(1, 1, true, '2024-10-01 10:00:00', '2024-11-01 10:00:00'),
+(2, 2, true, '2024-10-05 10:00:00', '2024-11-05 10:00:00'),
+(3, 3, false, '2024-09-01 10:00:00', '2024-10-01 10:00:00'),
+(4, 4, true, '2024-10-10 10:00:00', '2024-11-10 10:00:00'),
+(5, 5, true, '2024-10-15 10:00:00', '2025-10-15 10:00:00'),
+(6, 6, false, '2024-08-01 10:00:00', '2024-09-01 10:00:00'),
+(7, 7, true, '2024-10-20 10:00:00', '2024-11-20 10:00:00'),
+(8, 8, true, '2024-10-25 10:00:00', '2024-11-25 10:00:00'),
+(9, 9, false, '2024-09-15 10:00:00', '2024-10-15 10:00:00'),
+(10, 10, true, '2024-10-30 10:00:00', '2024-11-30 10:00:00');
+
+
+INSERT INTO lcms.discussions (customer_id, created_at, title, content)
+VALUES
+(1, '2024-10-01 10:00:00', 'Optimizing SQL Queries', 'I am facing performance issues with SQL queries. Any tips for optimizing them?'),
+(2, '2024-10-02 11:00:00', 'Best Practices for Clean Code', 'What are some good strategies for writing clean code in Java?'),
+(3, '2024-10-03 12:00:00', 'Using Spring Boot for REST APIs', 'Can someone explain how to properly structure REST APIs using Spring Boot?'),
+(4, '2024-10-04 13:00:00', 'Data Structures for Interviews', 'Which data structures should I focus on for coding interviews?'),
+(5, '2024-10-05 14:00:00', 'Multithreading in Java', 'What are the best practices for handling multithreading in Java applications?'),
+(6, '2024-10-06 15:00:00', 'Docker vs Kubernetes', 'When should you use Docker vs Kubernetes in microservice architecture?'),
+(7, '2024-10-07 16:00:00', 'Python vs Java Performance', 'Which one has better performance for large scale applications?'),
+(8, '2024-10-08 17:00:00', 'React vs Angular', 'What are the key differences between React and Angular in front-end development?'),
+(9, '2024-10-09 18:00:00', 'Unit Testing Best Practices', 'Can anyone share their best practices for writing unit tests in Java?'),
+(10, '2024-10-10 19:00:00', 'Scaling Microservices', 'What are the challenges and strategies for scaling microservices in cloud environments?');
+
+
+INSERT INTO lcms.coding_problems (id, category, difficulty, title, description, example_test_cases, input_format, output_format)
+VALUES 
+(1, 'Array', 'easy', 'Two Sum', 'Given an array of integers, return indices of the two numbers such that they add up to a target.', 
+'{"test_cases": [{"input": "[2,7,11,15] 9", "expected_output": "[0,1]"}, {"input": "[3,2,4] 6", "expected_output": "[1,2]"}]}', 
+'nums = [2,7,11,15], target = 9', 'Output: [0,1]'),
+
+(2, 'Linked List', 'hard', 'Reverse Linked List', 'Given the head of a singly linked list, reverse the list, and return the reversed list.', 
+'{"test_cases": [{"input": "1->2->3->4", "expected_output": "4->3->2->1"}, {"input": "1->2", "expected_output": "2->1"}]}', 
+'Input: Head of the linked list', 'Output: 4->3->2->1'),
+
+(3, 'Dynamic Programming', 'medium', 'Jump Game', 'Given an array of non-negative integers, return true if you can reach the last index starting from the first index.', 
+'{"test_cases": [{"input": "[2,3,1,1,4]", "expected_output": "true"}, {"input": "[3,2,1,0,4]", "expected_output": "false"}]}', 
+'Input: nums = [2,3,1,1,4]', 'Output: true'),
+
+(4, 'Stack', 'easy', 'Valid Parentheses', 'Given a string containing just the characters (, ), {, }, [, and ], determine if the input string is valid.', 
+'{"test_cases": [{"input": "()", "expected_output": "true"}, {"input": "()[]{}", "expected_output": "true"}, {"input": "(]", "expected_output": "false"}]}', 
+'Input: A string containing parentheses', 'Output: true'),
+
+(5, 'Binary Search', 'medium', 'Search a 2D Matrix', 'Write an efficient algorithm to search for a value in an m x n matrix.', 
+'{"test_cases": [{"input": "[[1, 3, 5, 7], [10, 11, 16, 20]] 3", "expected_output": "true"}, {"input": "[[1, 3, 5, 7], [10, 11, 16, 20]] 13", "expected_output": "false"}]}', 
+'Input: Matrix of integers, target integer', 'Output: true'),
+
+(6, 'Binary Tree', 'easy', 'Maximum Depth of Binary Tree', 'Given the root of a binary tree, return its maximum depth.', 
+'{"test_cases": [{"input": "3,9,20,null,null,15,7", "expected_output": "3"}, {"input": "1,null,2", "expected_output": "2"}]}', 
+'Input: Binary Tree', 'Output: 3'),
+
+(7, 'Intervals', 'medium', 'Merge Intervals', 'Given an array of intervals, merge all overlapping intervals.', 
+'{"test_cases": [{"input": "[[1,3],[2,6],[8,10],[15,18]]", "expected_output": "[[1,6],[8,10],[15,18]]"}, {"input": "[[1,4],[4,5]]", "expected_output": "[[1,5]]"}]}', 
+'Input: An array of intervals', 'Output: [[1,6],[8,10],[15,18]]'),
+
+(8, 'Two Pointers', 'medium', 'Container With Most Water', 'Given n non-negative integers, return the maximum amount of water a container can store.', 
+'{"test_cases": [{"input": "[1,8,6,2,5,4,8,3,7]", "expected_output": "49"}, {"input": "[1,1]", "expected_output": "1"}]}', 
+'Input: Array of integers', 'Output: 49'),
+
+(9, 'Sliding Window', 'easy', 'Best Time to Buy and Sell Stock', 'Given an array of prices, find the maximum profit.', 
+'{"test_cases": [{"input": "[7,1,5,3,6,4]", "expected_output": "5"}, {"input": "[7,6,4,3,1]", "expected_output": "0"}]}', 
+'Input: Array of prices', 'Output: 5'),
+
+(10, 'Backtracking', 'medium', 'Subsets', 'Given an integer array nums, return all possible subsets (the power set).', 
+'{"test_cases": [{"input": "[1,2,3]", "expected_output": "[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]"}]}', 
+'Input: Array of integers', 'Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]');
+
+-- Insert mock data into code_submissions table
+INSERT INTO lcms.code_submissions (customer_id, passed_tests, id, problem_id, output, code)
+VALUES 
+(1, true, 1, 1, '[0, 1]', 'def twoSum(nums, target):\n    for i in range(len(nums)):\n        for j in range(i + 1, len(nums)):\n            if nums[i] + nums[j] == target:\n                return [i, j]'),
+(2, true, 2, 2, '4->3->2->1', 'class ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\nclass Solution:\n    def reverseList(self, head: ListNode) -> ListNode:\n        prev, curr = None, head\n        while curr:\n            next_temp = curr.next\n            curr.next = prev\n            prev = curr\n            curr = next_temp\n        return prev'),
+(3, false, 3, 3, 'false', 'def canJump(nums):\n    max_reach = 0\n    for i, num in enumerate(nums):\n        if i > max_reach:\n            return False\n        max_reach = max(max_reach, i + num)\n    return True'),
+(4, true, 4, 4, 'true', 'def isValid(s):\n    stack = []\n    mapping = {")": "(", "}": "{", "]": "["}\n    for char in s:\n        if char in mapping:\n            top_element = stack.pop() if stack else "#"\n            if mapping[char] != top_element:\n                return False\n        else:\n            stack.append(char)\n    return not stack'),
+(5, true, 5, 5, 'true', 'def searchMatrix(matrix, target):\n    if not matrix:\n        return False\n    n, m = len(matrix), len(matrix[0])\n    left, right = 0, n * m - 1\n    while left <= right:\n        mid = left + (right - left) // 2\n        mid_element = matrix[mid // m][mid % m]\n        if mid_element == target:\n            return True\n        elif mid_element < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return False'),
+(6, true, 6, 6, '3', 'class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\nclass Solution:\n    def maxDepth(self, root: TreeNode) -> int:\n        if not root:\n            return 0\n        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))'),
+(7, true, 7, 7, '[[1,6],[8,10],[15,18]]', 'def merge(intervals):\n    intervals.sort(key=lambda x: x[0])\n    merged = []\n    for interval in intervals:\n        if not merged or merged[-1][1] < interval[0]:\n            merged.append(interval)\n        else:\n            merged[-1][1] = max(merged[-1][1], interval[1])\n    return merged'),
+(8, true, 8, 8, '49', 'def maxArea(height):\n    left, right = 0, len(height) - 1\n    max_area = 0\n    while left < right:\n        width = right - left\n        max_area = max(max_area, min(height[left], height[right]) * width)\n        if height[left] < height[right]:\n            left += 1\n        else:\n            right -= 1\n    return max_area'),
+(9, true, 9, 9, '5', 'def maxProfit(prices):\n    min_price = float(\'inf\')\n    max_profit = 0\n    for price in prices:\n        min_price = min(min_price, price)\n        max_profit = max(max_profit, price - min_price)\n    return max_profit'),
+(10, true, 10, 10, '[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]', 'def subsets(nums):\n    res = []\n    def backtrack(start, path):\n        res.append(path)\n        for i in range(start, len(nums)):\n            backtrack(i + 1, path + [nums[i]])\n    backtrack(0, [])\n    return res');
+
+
+
