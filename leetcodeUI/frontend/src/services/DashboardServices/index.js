@@ -10,6 +10,10 @@ class DashboardServices  {
         return axiosInstance.get(`${LEETCODE_BASE_URL}/coding-problems/problems`)
     }
 
+    executeCode(body, id) {
+      return axiosInstance.post(`${LEETCODE_BASE_URL}/coding-submission/execute/${id}`, body)
+  }
+
     getProblemsByCategory(category) {
       return axiosInstance.get(`${LEETCODE_BASE_URL}/coding-problems/category/${category}`)
   }
@@ -21,40 +25,10 @@ getProblemById(id) {
   return axiosInstance.get(`${LEETCODE_BASE_URL}/coding-problems/problem/${id}`)
 }
 
-    getProductDetails(productId){
-      return axiosInstance.get(`${LEETCODE_BASE_URL}/dashboard/getProductDetails`,{
-        params:{
-          productId:productId
-        }
-      })
-    }
-    
 
-  getAllCategories(){
-    return axiosInstance.get(`${LEETCODE_BASE_URL}/dashboard/getCategories`)
-  }
 
-  getProductsByCategoryName(category){
-    return axiosInstance.get(`${LEETCODE_BASE_URL}/dashboard/getProductsByCategory`,{
-      params:{
-        category:category
-      }
-    });
-  }
 
-  getLocationDetails(username){
-    return axiosInstance.get(`${LEETCODE_BASE_URL}/dashboard/getLocation`, {
-      params: {
-        username: username
-      }
-    });
-  }
 
-  addVehicleDetails(userId, vehicle){
-    return axiosInstance.post(`${LEETCODE_BASE_URL}/dashboard/addVehicleInfo/${userId}`,vehicle)
-  }
-  
-  
 
 }
 

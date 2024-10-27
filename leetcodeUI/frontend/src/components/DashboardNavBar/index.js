@@ -34,21 +34,11 @@ const Navbar = ({ toggle }) => {
       setScrollNav(false)
     }
   }
-  const getLocationDetails = () => {
-    DashboardServices.getLocationDetails('rahul_padma').then(response => {
-      console.log("lll", response.data)
-      const locationresp = response.data.address + " OPENS FROM " + response.data.operatingHrs
-      setLocation(locationresp);
-    }).catch(error => {
-      console.log(error)
-    })
-  }
   const goToCart = (event) => {
     navigate('/cart');
   };
 
   useEffect(() => {
-    getLocationDetails();
     window.addEventListener('scroll', changeNav)
   }, []);
 
@@ -56,10 +46,10 @@ const Navbar = ({ toggle }) => {
     scroll.scrollToTop()
   }
 
-  const handleAddVehicleDetails = (e) => {
+  const handleDiscussion = (e) => {
     e.preventDefault()
     const id = state.userData.userId;
-    navigate(`/addvehicledetails/${id}`);
+    navigate(`/viewalldiscussions/${id}`);
   }
 
   const handleUpdatePersonalDetails = (e) => {
@@ -93,7 +83,7 @@ const Navbar = ({ toggle }) => {
           </MobileIcon>
           <NavMenu>
             <NavItem>
-              <NavLinks onClick={event => handleAddVehicleDetails(event)} smooth={true} duration={500} spy={true} exact='true' offset={-80} >View Discussion</NavLinks>
+              <NavLinks onClick={event => handleDiscussion(event)} smooth={true} duration={500} spy={true} exact='true' offset={-80} >View Discussion</NavLinks>
             </NavItem>
             <NavItem>
               <NavLinks onClick={event => handleUpdatePersonalDetails(event)} smooth={true} duration={500} spy={true} exact='true' offset={-80} >View Contest Board </NavLinks>

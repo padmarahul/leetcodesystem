@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { GlobalStateProvider } from './GlobalStateContext'
 import SignUpComponent from "./pages/SignUpComponent";
 import ForgotPassword from "./pages/ForgotPassword";
+import DiscussionsComponent from "./pages/DiscussionsComponent";
 import CodingEditorComponent from "./pages/CodingEditorComponent";
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path='/updatepersonaldetails/:id' element={<UpdatePersonalDetails />} exact />
             <Route path='/changepassword' element={< ForgotPassword/>} exact />
             <Route path='/coding-editor/:id' element={<CodingEditorComponent />} exact />
+            <Route path='/viewalldiscussions/:id' element={<DiscussionsComponent />} exact />
           </Routes>
         </Router>
       </GlobalStateProvider>

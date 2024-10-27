@@ -4,25 +4,28 @@ import axios from "axios";
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript'; // Import the language extension
 import './CodingEditorComponent.css'; // Import custom CSS for styling
-
+import DashboardServices from "../../services/DashboardServices";
 const CodingEditorComponent = () => {
   const [state] = useContext(GlobalStateContext); // Access global state
   const problem = state.problemData; // Get the selected problem data
   const [code, setCode] = useState('// Write your code here');
   const [output, setOutput] = useState('');
 
-  // Handle code submission to backend for running/compiling
+  // Fetch problems by category filter
   const handleRunCode = () => {
-    axios.post('http://localhost:8080/run-code', {
+
+    const requestBody = {
       code: code,
-      language: "javascript",  // You can dynamically change language
-      input: problem?.inputFormat // Include input data from the problem
-    }).then((response) => {
-      setOutput(response.data.output);  // Output of code execution
-    }).catch((error) => {
-      console.error("Error running code:", error);
-      setOutput("Error running code");
-    });
+      testCases:problem?.testCases,
+      language: "java",
+      versionIndex: 4
+  };
+      // Fetch all problems
+      DashboardServices.executeCode(requestBody, problem?.id).then(response => {
+        setOutput(response.data)
+      }).catch(error => {
+        console.log(error);
+      });
   };
 
   return (
@@ -45,7 +48,10 @@ const CodingEditorComponent = () => {
               <p>{problem.outputFormat}</p>
             </div>
             <h4>Example Test Cases:</h4>
-            <pre className="test-cases">{JSON.stringify(JSON.parse(problem.exampleTestCases), null, 2)}</pre>
+<pre className="test-cases">
+  {JSON.stringify(problem.testCases, null, 2)}
+</pre>
+
           </>
         ) : (
           <p>Loading problem...</p>
