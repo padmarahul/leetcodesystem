@@ -1,5 +1,7 @@
 package com.sec.leetcodesystem.dto;
 
+import java.util.List;
+
 public class CodingProblemDTO {
     
     private Long id;
@@ -9,21 +11,25 @@ public class CodingProblemDTO {
     private String description;
     private String inputFormat;
     private String outputFormat;
-    private String exampleTestCases;
+    private List<TestCase> testCases; 
 
-    // Constructor
-    public CodingProblemDTO(Long id, String title, String difficulty, String category, String description, String inputFormat, String outputFormat, String exampleTestCases) {
-        this.id = id;
-        this.title = title;
-        this.difficulty = difficulty;
-        this.category = category;
-        this.description = description;
-        this.inputFormat = inputFormat;
-        this.outputFormat = outputFormat;
-        this.exampleTestCases = exampleTestCases;
+    public CodingProblemDTO()
+    {
     }
+    public CodingProblemDTO(Long id, String title, String difficulty, String category, String description,
+			String inputFormat, String outputFormat, List<TestCase> testCases) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.difficulty = difficulty;
+		this.category = category;
+		this.description = description;
+		this.inputFormat = inputFormat;
+		this.outputFormat = outputFormat;
+		this.testCases = testCases;
+	}
 
-    // Getters and Setters
+	// Getters and Setters
     public Long getId() {
         return id;
     }
@@ -80,11 +86,13 @@ public class CodingProblemDTO {
         this.outputFormat = outputFormat;
     }
 
-    public String getExampleTestCases() {
-        return exampleTestCases;
-    }
+	public List<TestCase> getTestCases() {
+		return testCases;
+	}
 
-    public void setExampleTestCases(String exampleTestCases) {
-        this.exampleTestCases = exampleTestCases;
-    }
+	public void setTestCases(List<TestCase> testCases) {
+		this.testCases = testCases;
+	}
+
+  
 }

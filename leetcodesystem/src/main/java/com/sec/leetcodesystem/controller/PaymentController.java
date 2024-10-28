@@ -62,8 +62,8 @@ public class PaymentController {
                     "paypal",       // Payment method
                     "sale",         // Intent
                     planType + " Subscription",  // Description
-                    "http://localhost:8080/lcms/payment/"+userId+"/cancel",     // Cancel URL
-                    "http://localhost:8080/lcms/payment/"+userId+"/success"     // Success URL
+                    "https://localhost:8443/lcms/payment/"+userId+"/cancel",     // Cancel URL
+                    "https://localhost:8443/lcms/payment/"+userId+"/success"     // Success URL
             );
             for (Links link : payment.getLinks()) {
                 if (link.getRel().equals("approval_url")) {
